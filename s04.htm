@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>snake game</title>
+   <style>
+     .Mi{
+         border:1px solid rgb(6, 81, 6);
+         border-radius:10px;
+         font-size:20px;
+         padding:15px;
+         color:white;
+         background-color:rgb(21, 171, 21);
+         display:inline-table
+         ;
+         margin:20px;
+     }
+     
+     
+     body{
+         background-color:#88a5c6;
+     }
+     /* .clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+} */
+
+     .Ct{
+         border:1px solid white;
+         width:300px;
+         margin-left:500px;
+         text-align:center; 
+         border-radius:20px;
+        
+         
+     }
+     .C{
+         border:1px solid white;
+         width:250px;
+         text-align:center; 
+         padding:4px;
+         margin-left:20px;
+         border-radius:20px;
+        
+         
+     }
+   </style>
+</head> 
+<body id="Main">
+    <div id="Content"class="Ct">
+    <p id="Mi"class="Mi">Change BackColor</p>
+    <p id="Ci"class="Mi">Show Info</p>
+    <pre id="Tx"class="C">Name: Amir Hossein
+
+    Last Name: Sadat Hosseini
+
+    University Name: Montazeri
+    </pre>
+    
+</div>
+   <script>
+       let Color=["blue","green","yellow","red","purple","orange","gray","aqua","greenlight"];
+       let BColor=["black","white","black","white","black","white","black","white","black"]
+       let s=parseInt(Math.random()*Color.length);
+       document.getElementById('Mi').addEventListener("click",function()
+       {
+           s=parseInt(Math.random()*Color.length);
+        
+           document.getElementById('Content').style="border-color:"+(Color[s])+";border-width:"+s+"px;";
+           document.getElementById('Ci').style="border-color:"+(Color[s])+";box-shadow:2px 2px 2px "+(Color[s])+";";
+           document.getElementById('Mi').style="border-color:"+(Color[s])+";box-shadow:2px 2px 2px "+(Color[s])+";background-color:"+(Color[s])+";color:"+(BColor[s])+";";
+           
+       }  );
+       document.getElementById('Ci').addEventListener("click",function(){
+       Start();
+      });
+   function Start()
+      {
+      state=confirm("Are You Want Alert This Data ? ");
+      while(state)
+      {
+          Show();
+           state=confirm("Are you Contiued ?");
+       
+      }
+    }
+     function Show()
+     {
+         let Tx=document.getElementById('Tx').textContent;
+             alert(Tx);
+         
+     }
+   </script>
+</body>
+</html>

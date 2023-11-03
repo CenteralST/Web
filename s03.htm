@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>snake game</title>
+   <style>
+     #Mi{
+         border:1px solid rgb(6, 81, 6);
+         border-radius:10px;
+         font-size:20px;
+         padding:15px;
+         color:white;
+         background-color:rgb(21, 171, 21);
+         display:inline-table
+         ;
+         margin:20px;
+     }
+     #Ci{
+        border:1px solid rgb(6, 81, 6);
+         border-radius:10px;
+         font-size:20px;
+         padding:15px;
+         color:white;
+         background-color:rgb(21, 171, 21);
+         display:inline-table;
+
+         margin:20px;
+     }
+     body{
+         background-color:black;
+     }
+     /* .clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+} */
+
+     .Content{
+         border:1px solid white;
+         width:300px;
+         margin-left:500px;
+         text-align:center; 
+         border-radius:20px;
+        
+         
+     }
+   </style>
+</head> 
+<body id="Main">
+    <div class="Content clearfix">
+    <p id="Mi">Change BackColor</p>
+    <p id="Ci">Add Info</p>
+</div>
+   <script>
+       let Color=["blue","green","yellow","red","purple","orange","gray","aqua","greenlight"];
+       let s=parseInt(Math.random()*Color.length);
+       document.getElementById('Mi').onclick=function()
+       {
+           s=parseInt(Math.random()*Color.length);
+           document.getElementById('Main').style="background-color:"+(Color[s])+";";
+           
+           
+       }  
+       document.getElementById('Ci').onclick=function(){
+       
+        Start();
+       } 
+       let N,F,A;
+       let state=false;
+       let Obj={};
+       let i=0;
+       function Start()
+       {
+       state=confirm("Are You Want Add data ? ");
+       while(state)
+       {
+            N=prompt("Name Is : ");
+            F=prompt("Family Is : ");
+            A=prompt("Age Is : ");
+            Obj[i]={
+                "Name":N,
+                "Family":F,
+                "Age":A
+            }
+            state=confirm("Are you Contiued ?");
+            i+=1;
+       }
+       Show();
+    }
+     function Show()
+     {
+         for(let t=0;t<i;t++)
+         {
+             var G=t;
+             alert("Member "+(++G)+"\nName : "+Obj[t].Name+"\nFamily : "+Obj[t].Family+"\nAge : "+Obj[t].Age);
+         }
+     }
+   </script>
+</body>
+</html>
