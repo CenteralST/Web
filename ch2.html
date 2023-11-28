@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>Challenge 1</title>
+        <style>
+            .Main{
+                background-color:lightgray;
+            }
+            #Main{
+                background-color:lightblue;
+              padding:20px;
+            }
+            .Node{
+                background-color:white;
+                width:100px;
+                height:100px;
+                padding-left:15px;
+                padding-right: 15px;
+                margin:20px;
+                display: inline-block;
+                padding-top:15px;
+                
+            }
+            input{
+                width:100px;
+                height:20px;
+               
+            }
+        </style>
+    </head>
+    <body>
+        <header class="Main">
+            <span>Challenge 1</span>
+        </header>
+        <article id="Main">
+            <article class="Node" id="art1">
+                Box1
+               <input type="text"id="tx1"/>
+               <input type="button"id="btn1"value="Ok"onclick='ChangeColor("btn1","tx1","art1")'/>
+            </article>
+            <article class="Node"id="art2">
+                Box2
+                <input type="text"id="tx2"/>
+               <input type="button"id="btn2"value="Ok"onclick='ChangeColor("btn2","tx2","art2")'/>
+            </article>
+            <article class="Node"id="art3">
+                Box3
+                <input type="text"id="tx3"/>
+               <input type="button"id="btn3"value="Ok"onclick='ChangeColor("btn3","tx3","art3")'/>
+            </article>
+            <article class="Node"id="art4">
+                Box4
+                <input type="text"id="tx4"/>
+               <input type="button"id="btn4"value="Ok"onclick='ChangeColor("btn4","tx4","art4")'/>
+            </article>
+            <article class="Node"id="art5">
+                Box5
+                <input type="text"id="tx5"/>
+                <input type="button"id="btn5"value="Ok"onclick='ChangeColor("btn5","tx5","art5")'/>
+            </article>
+            <article class="Node"id="art6">
+                Box6
+                <input type="text"id="tx6"/>
+               <input type="button"id="btn6"value="Ok"onclick='ChangeColor("btn6","tx6","art6")'/>
+            </article>
+        </article>
+        <script>
+            function GetId(Id)
+            {
+                return document.getElementById(Id);
+            }
+            function ChangeColor(Btn,txt,art)
+            {
+                GetId(Btn).addEventListener("click",function()
+            {
+                let value=GetId(txt).value;
+                    GetId(art).style="color:white;background-color:"+value;
+                    
+                ChangeColor("tx1","art1");
+            });
+            
+                    
+            }
+            
+            
+
+        </script>
+    </body>
+</html>
