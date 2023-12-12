@@ -16,21 +16,56 @@ let Headers={
 
 let route={
     a:dynamicWrite,
-    insertToFile:insertToFile
+    insertToFile:insertToFile,
+    getFile:getFile
 }
-function insertToFile(request,response,data)
+function getFile(response,request)
 {
-    fs.writeFile("Text.txt",data,'utf8',function(error)
+    fs.readFile("Text.txt",function(error,DD)
     {
         if(error)
         {
             write('txt',"Fs Error :(",response,request);
+            console.log("aaaa");
 
         }
         else
         {
+            console.log("AAAA");
+            write('txt',"DD",response,request);
+        }
+    });
 
-            write('txt',"Your File Has Saved :)",response,request);
+}
+function insertToFile(request,response,dt)
+{
+    fs.readFile("Text.txt",function(error,DD)
+    {
+        if(error)
+        {
+            write('txt',"Fs Error :(",response,request);
+            console.log("aaaa");
+
+        }
+        else
+        {
+             DD=JSON.parse(DD);
+            console.log( "A",DD);
+            DD.data.push(JSON.parse(dt));
+            console.log("B",DD);
+            DD=JSON.stringify(DD);
+            fs.writeFile("Text.txt",DD,'utf8',function(error)
+            {
+                if(error)
+                {
+                    write('txt',"Fs Error :(",response,request);
+                }
+                else
+                {
+                    write('txt',"Your File Has Saved :)",response,request);
+                }
+            })
+            
         }
     });
 }
